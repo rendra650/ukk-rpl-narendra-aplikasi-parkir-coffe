@@ -1,8 +1,20 @@
 # Coffe Sedayu - Parking System
 
 Sistem Manajemen Parkir berbasis web modern yang dirancang khusus untuk mengelola area parkir, pencatatan kendaraan masuk/keluar, pembayaran mandiri oleh pelanggan, serta laporan riwayat transaksi secara real-time. Project ini dikembangkan menggunakan **PHP Native (PDO)**, **Tailwind CSS**, dan **MySQL**.
+## 📐 Algoritma & Alur Sistem (Flowchart)
 
+Sistem Parkir Coffe Sedayu dirancang dengan alur kerja sebagai berikut:
+1. **Kendaraan Masuk:**
+   * Petugas mencatat nomor plat dan jenis kendaraan di menu *Kendaraan Masuk*.
+   * Sistem otomatis men-generate **Kode Tiket unik** dan mencatat waktu masuk (`waktu_masuk`).
+2. **Kendaraan Keluar & Pembayaran:**
+   * Petugas memasukkan atau memindai *Kode Tiket* pada menu *Kendaraan Keluar*.
+   * Sistem menghitung durasi parkir (selisih waktu masuk dan waktu keluar) secara otomatis[cite: 3].
+   * Total biaya dihitung dengan rumus: $\text{Total Bayar} = \text{Durasi (Jam)} \times \text{Tarif Dasar}$.
+   * Pengguna memilih metode pembayaran (**Tunai, Transfer Bank, atau QRIS**)[cite: 3].
+   * Sistem memperbarui status transaksi menjadi `keluar` dan struk siap dicetak[cite: 3].
 ---
+<img width="1897" height="892" alt="Screenshot 2026-09-15 075644" src="https://github.com/user-attachments/assets/35ff62ff-7050-4b50-ac8d-323d0c9d768c" />
 
 ## 🚀 Fitur Utama
 
