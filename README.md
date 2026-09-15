@@ -1,85 +1,182 @@
-# Coffe Sedayu - Parking System
+# Coffe Sedayu Parking System
 
-Sistem Manajemen Parkir berbasis web modern yang dirancang khusus untuk mengelola area parkir, pencatatan kendaraan masuk/keluar, pembayaran mandiri oleh pelanggan, serta laporan riwayat transaksi secara real-time. Project ini dikembangkan menggunakan **PHP Native (PDO)**, **Tailwind CSS**, dan **MySQL**.
-## 📐 Algoritma & Alur Sistem (Flowchart)
-
-Sistem Parkir Coffe Sedayu dirancang dengan alur kerja sebagai berikut:
-1. **Kendaraan Masuk:**
-   * Petugas mencatat nomor plat dan jenis kendaraan di menu *Kendaraan Masuk*.
-   * Sistem otomatis men-generate **Kode Tiket unik** dan mencatat waktu masuk (`waktu_masuk`).
-2. **Kendaraan Keluar & Pembayaran:**
-   * Petugas memasukkan atau memindai *Kode Tiket* pada menu *Kendaraan Keluar*.
-   * Sistem menghitung durasi parkir (selisih waktu masuk dan waktu keluar) secara otomatis[cite: 3].
-   * Total biaya dihitung dengan rumus: $\text{Total Bayar} = \text{Durasi (Jam)} \times \text{Tarif Dasar}$.
-   * Pengguna memilih metode pembayaran (**Tunai, Transfer Bank, atau QRIS**)[cite: 3].
-   * Sistem memperbarui status transaksi menjadi `keluar` dan struk siap dicetak[cite: 3].
----
-![Mockup Aplikasi Parkir](./Screenshot%202026-09-15%20075644.jpg)
-
-## 🚀 Fitur Utama
-
-### 1. **Role & Hak Akses (Multi-user)**
-* **Admin / Petugas:** 
-  * Mengelola pintu kendaraan masuk dan keluar.
-  * Memproses pembayaran parkir (Tunai, Transfer Bank, QRIS).
-  * Memantau kapasitas dan ketersediaan slot parkir secara langsung.
-* **Pelanggan (Member):**
-  * Memantau ketersediaan slot parkir di area Coffe Sedayu.
-  * Melakukan **Checkout & Pembayaran Mandiri** secara online melalui dashboard.
-  * Melihat riwayat kunjungan lengkap dengan fitur pencarian dan filter tanggal.
-  * Mengunduh riwayat kunjungan dalam format CSV.
-
-### 2. **Sistem Perhitungan Tarif Otomatis**
-* Sistem menghitung durasi parkir berdasarkan selisih waktu masuk dan waktu keluar secara otomatis.
-* Dilengkapi dengan sistem *fallback* tarif dasar (misal: Rp 2.000/jam) guna menghindari error nominal kosong (`Rp 0`) pada transaksi.
-
-### 3. **Fitur Pendukung**
-* **Struk Digital & Cetak:** Struk pembayaran dirancang khusus agar siap cetak (`window.print()`).
-* **Log Aktivitas:** Mencatat setiap aktivitas penting pengguna untuk kebutuhan audit sistem.
-* **Desain Responsif:** Dibangun menggunakan kerangka kerja Tailwind CSS dengan tema gelap (*dark mode*) yang elegan.
+Dokumentasi lengkap, panduan instalasi, dan struktur sistem untuk **Coffe Sedayu Parking System** — aplikasi manajemen parkir berbasis web terintegrasi profil kafe, dilengkapi database MySQL (`coffee_sedayu_parking`), perhitungan tarif otomatis via Stored Procedure, dan 4 tingkat hak akses pengguna.
 
 ---
 
-## 🛠️ Teknologi yang Digunakan
+## 📋 Daftar Isi
 
-* **Backend:** PHP 8+ (Native dengan ekstensi PDO)
-* **Database:** MySQL
-* **Frontend:** Tailwind CSS (via CDN), FontAwesome 6.4.0
-* **Server Lokal:** XAMPP (Apache)
+1. [Tentang Proyek](#-tentang-proyek)
+2. [Fitur Utama](#-fitur-utama)
+3. [Struktur Database](#-struktur-database)
+4. [Persyaratan Sistem](#-persyaratan-sistem)
+5. [Panduan Instalasi & Penggunaan](#-panduan-instalasi--penggunaan)
+6. [Hak Akses & Kredensial](#-hak-akses--kredensial)
+7. [Struktur Folder](#-struktur-folder)
+8. [Dokumentasi Lengkap](#-dokumentasi-lengkap)
+9. [Informasi Peserta](#-informasi-peserta)
 
 ---
 
-## 📁 Struktur Direktori Project
+## 🅿️ Tentang Proyek
 
-```text
-coffe-sedayu/
-├── config.php            # Konfigurasi koneksi database & fungsi helper
-├── auth.php              # Sistem autentikasi & hak akses role
-├── sidebar.php           # Komponen navigasi samping (sidebar)
-├── pelanggan.php         # Dashboard & pembayaran mandiri pelanggan
-├── kendaraan_keluar.php  # Modul proses keluar kendaraan (Petugas/Admin)
-├── kendaraan_masuk.php   # Modul pencatatan kendaraan masuk
-├── export_riwayat...     # Fitur ekspor laporan ke CSV
-└── README.md             # Dokumentasi project
-⚙️ Cara Instalasi & Menjalankan Project
-Clone atau Unduh Repository:
-Letakkan folder project ke dalam direktori server lokal Anda (contoh: htdocs pada XAMPP atau www pada Laragon).
+**Coffe Sedayu Parking System** adalah sistem informasi parkir pintar yang dirancang untuk memantau kapasitas area parkir secara *real-time*, mencatat arus kendaraan masuk/keluar, menghitung tarif otomatis berdasarkan durasi parkir, mengelola transaksi pembayaran (Tunai/Transfer/QRIS), serta menyediakan dashboard khusus untuk pemilik usaha, admin, petugas lapangan, dan pelanggan.
 
-Konfigurasi Database:
+Dibangun dengan PHP native + MySQL (PDO), tanpa framework, agar seluruh alur logika (autentikasi, CRUD, perhitungan tarif, trigger database) dapat ditelusuri langsung dari source code.
 
-Buat database baru di MySQL melalui phpMyAdmin dengan nama (misal: parkir_coffe_sedayu).
+---
 
-Impor file struktur SQL project ke dalam database tersebut.
+## ✨ Fitur Utama
 
-Pengaturan Koneksi:
+**Publik (Landing Page)**
+- Status ketersediaan slot parkir secara live
+- Video profil suasana kafe & area parkir
+- Ulasan & rating dari pelanggan
+- Registrasi akun (otomatis menjadi role Pelanggan)
 
-Sesuaikan kredensial database (host, username, password, nama database) di dalam file config.php.
+**Pelanggan**
+- Dashboard: statistik pribadi (total kunjungan, total pengeluaran, kendaraan terdaftar)
+- Daftarkan & kelola kendaraan sendiri (self-service)
+- Bayar mandiri (Tunai/Transfer/QRIS) tanpa perlu ke petugas
+- Riwayat kunjungan dengan filter & pencarian, export CSV pribadi
+- Struk digital dengan QR Code
 
-Menjalankan Aplikasi:
+**Petugas**
+- Dashboard shift harian (kendaraan diproses, pendapatan)
+- Input kendaraan masuk (cetak karcis + QR Code)
+- Proses kendaraan keluar (hitung tarif otomatis, cetak struk)
+- Daftar kendaraan sedang parkir (klik cepat isi kode tiket)
+- Validasi otomatis jika area sudah penuh
 
-Nyalakan Apache dan MySQL melalui control panel XAMPP
+**Admin**
+- CRUD penuh: User, Tarif Parkir, Area Parkir, Kendaraan
+- Rekap transaksi dengan filter tanggal, export CSV & PDF
+- Log aktivitas seluruh pengguna
+- Performa petugas (ranking transaksi & pendapatan)
 
-Buka browser dan akses URL: http://localhost/coffe-sedayu/
+**Owner**
+- Dashboard finansial mendalam (breakdown metode bayar, tren 6 bulan)
+- Performa petugas & daftar staff (read-only)
+- Laporan & export PDF
 
-👨‍💻 Pembuat
-Project ini dikembangkan oleh Narendra Abdhil sebagai bagian dari Uji Kompetensi Keahlian (UKK).
+---
+
+## 🗄️ Struktur Database
+
+Database: `coffee_sedayu_parking` — 7 tabel utama:
+
+| Tabel | Fungsi |
+|---|---|
+| `users` | Akun pengguna (owner, admin, petugas, pelanggan) + kontak & foto profil |
+| `area` | Zona parkir, kapasitas, dan slot terisi (dihitung otomatis via trigger) |
+| `tarif` | Tarif per jenis kendaraan (jam pertama & jam berikutnya) |
+| `kendaraan` | Data master kendaraan, dapat ditautkan ke akun pelanggan |
+| `transaksi` | Transaksi parkir dari masuk hingga keluar & pembayaran |
+| `log_aktifitas` | Riwayat aktivitas pengguna untuk audit |
+| `ulasan` | Ulasan & rating pelanggan di landing page |
+
+Dilengkapi:
+- **Trigger** `trg_masuk_update_area` & `trg_keluar_update_area` — update slot terisi otomatis
+- **Stored Procedure** `sp_proses_keluar` — hitung tarif dengan `START TRANSACTION` / `COMMIT` / `ROLLBACK`
+
+Lihat diagram lengkap: [`docs/02-perancangan.pdf`](docs/02-perancangan.pdf)
+
+---
+
+## ⚙️ Persyaratan Sistem
+
+- PHP 8.0 atau lebih baru (dengan ekstensi PDO MySQL)
+- MySQL 5.7+ / MariaDB 10.4+
+- Web server (Apache — direkomendasikan XAMPP untuk lokal)
+- Browser modern (Chrome, Edge, Firefox)
+
+---
+
+## 🚀 Panduan Instalasi & Penggunaan
+
+1. **Clone repository ini**
+   ```
+   git clone https://github.com/[username]/[nama-repo].git
+   ```
+2. **Import database**
+   Buka phpMyAdmin → buat database baru → Import → pilih file `database/database.sql`
+3. **Salin source code**
+   Salin isi folder `src/` ke folder `htdocs` (XAMPP) atau document root web server kamu
+4. **Atur koneksi database**
+   Buka `config.php`, sesuaikan `$host`, `$db`, `$user`, `$pass` dengan konfigurasi database kamu
+5. **Jalankan**
+   Aktifkan Apache & MySQL di XAMPP, lalu buka `http://localhost/[nama-folder]/` di browser
+
+---
+
+## 🔐 Hak Akses & Kredensial
+
+Akun pengujian untuk asesor (silakan sesuaikan dengan akun yang benar-benar dibuat di database):
+
+| Role | Username | Password | Akses |
+|---|---|---|---|
+| Owner | `abdhil` | `owner123` | Dashboard finansial, laporan, daftar staff |
+| Admin | `rendra admin` | `admin123` | CRUD data master, rekap transaksi, log aktivitas |
+| Petugas | `rendra petugas` | `12345` | Kendaraan masuk/keluar, dashboard shift |
+| Pelanggan | `rendra pelanggan` | `pelanggan123` | Status parkir, bayar mandiri, riwayat pribadi |
+> Akun baru juga bisa dibuat langsung lewat halaman **Buat Akun** di aplikasi (otomatis menjadi role Pelanggan).
+
+---
+
+## 📁 Struktur Folder
+
+```
+project-ukk/
+│
+├── README.md
+│
+├── src/                        # Seluruh source code aplikasi (PHP)
+│
+├── database/
+│   └── database.sql            # Struktur tabel + trigger + stored procedure
+│
+├── docs/
+│   ├── 01-analisis-kebutuhan.pdf
+│   ├── 02-perancangan.pdf
+│   ├── 03-dokumentasi-program.pdf
+│   ├── 04-pengujian.pdf
+│   ├── 05-debugging.pdf
+│   ├── 06-evaluasi.pdf
+│   └── screenshots/
+│       ├── login.png
+│       ├── dashboard.png
+│       ├── transaksi.png
+│       └── pengujian.png
+│
+└── tests/
+    └── (skenario pengujian, jika tersedia)
+```
+
+---
+
+## 📖 Dokumentasi Lengkap
+
+| Dokumen | Isi |
+|---|---|
+| [`01-analisis-kebutuhan.pdf`](docs/01-analisis-kebutuhan.pdf) | Latar belakang, requirement, aktor/user |
+| [`02-perancangan.pdf`](docs/02-perancangan.pdf) | Use Case, Flowchart, ERD, Wireframe |
+| [`03-dokumentasi-program.pdf`](docs/03-dokumentasi-program.pdf) | Struktur aplikasi, teknologi, dokumentasi fungsi |
+| [`04-pengujian.pdf`](docs/04-pengujian.pdf) | Test case, expected/actual result, status pengujian |
+| [`05-debugging.pdf`](docs/05-debugging.pdf) | Error yang ditemukan, penyebab, solusi |
+| [`06-evaluasi.pdf`](docs/06-evaluasi.pdf) | Fitur berjalan, bug tersisa, rencana pengembangan |
+
+---
+
+## 👤 Informasi Peserta
+
+| | |
+|---|---|
+| **Nama Peserta** | [ISI NAMA LENGKAP KAMU] |
+| **Kelas** | [ISI KELAS KAMU] |
+| **Judul Project** | Coffe Sedayu Parking System |
+| **Studi Kasus** | Aplikasi Parkir (P2) |
+| **Demo Online** | [ISI LINK DEMO, CONTOH: https://parkircoffesedayu.free.nf] |
+
+**Known Issues:**
+- Stored procedure & trigger mungkin tidak berjalan di beberapa hosting gratis dengan privilege MySQL terbatas
+- Metode pembayaran QRIS/Transfer masih berupa simulasi (belum terintegrasi payment gateway sungguhan)
