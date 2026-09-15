@@ -96,10 +96,6 @@ Dilengkapi:
 
 ---
 
----
-
----
-
 ## ⚙️ Persyaratan Sistem
 
 - PHP 8.0 atau lebih baru (dengan ekstensi PDO MySQL)
@@ -159,8 +155,6 @@ project-ukk/
     └── (skenario pengujian, jika tersedia)
 ```
    ![Diagram Struktur Folder](docs/struktur_folder_proyek.png)
----
-
 ---
 
 ## 👤 Informasi Peserta
