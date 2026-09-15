@@ -24,8 +24,19 @@ Dokumentasi lengkap, panduan instalasi, dan struktur sistem untuk **Coffe Sedayu
 
 Dibangun dengan PHP native + MySQL (PDO), tanpa framework, agar seluruh alur logika (autentikasi, CRUD, perhitungan tarif, trigger database) dapat ditelusuri langsung dari source code.
 
+
+![Flowchart Algoritma Parkir](docs/diagram_alur_algoritma_parkir.png)
 ---
 
+## 👥 Use Case Diagram
+
+Diagram berikut menunjukkan aktor (Pelanggan, Petugas, Admin, Owner) dan fitur utama yang dapat mereka akses:
+
+![Use Case Diagram Sistem Parkir](docs/use_case_diagram_parkir.png)
+
+---
+
+## ✨ Fitur Utama
 ## ✨ Fitur Utama
 
 **Publik (Landing Page)**
@@ -80,7 +91,12 @@ Dilengkapi:
 - **Stored Procedure** `sp_proses_keluar` — hitung tarif dengan `START TRANSACTION` / `COMMIT` / `ROLLBACK`
 > Akun baru juga bisa dibuat langsung lewat halaman **Buat Akun** di aplikasi (otomatis menjadi role Pelanggan).
 
+![ERD Database Coffe Sedayu Parking](docs/erd_coffe_sedayu_parking.png)
+
+---
 Lihat diagram lengkap: [`docs/02-perancangan.pdf`](docs/02-perancangan.pdf)
+
+---
 
 ---
 
@@ -142,7 +158,7 @@ project-ukk/
 └── tests/
     └── (skenario pengujian, jika tersedia)
 ```
-
+   ![Diagram Struktur Folder](docs/struktur_folder_proyek.png)
 ---
 
 ## 📖 Dokumentasi Lengkap
