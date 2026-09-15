@@ -49,3 +49,25 @@ coffe-sedayu/
 ├── kendaraan_masuk.php   # Modul pencatatan kendaraan masuk
 ├── export_riwayat...     # Fitur ekspor laporan ke CSV
 └── README.md             # Dokumentasi project
+⚙️ Cara Instalasi & Menjalankan Project
+Clone atau Unduh Repository:
+Letakkan folder project ke dalam direktori server lokal Anda (contoh: htdocs pada XAMPP atau www pada Laragon).
+
+Konfigurasi Database:
+
+Buat database baru di MySQL melalui phpMyAdmin dengan nama (misal: parkir_coffe_sedayu).
+
+Impor file struktur SQL project ke dalam database tersebut.
+
+Pengaturan Koneksi:
+
+Sesuaikan kredensial database (host, username, password, nama database) di dalam file config.php.
+
+Menjalankan Aplikasi:
+
+Nyalakan Apache dan MySQL melalui control panel XAMPP/Laragon.
+
+Buka browser dan akses URL: http://localhost/coffe-sedayu/
+
+👨‍💻 Pembuat
+Project ini dikembangkan oleh Narendra Abdhil sebagai bagian dari Uji Kompetensi Keahlian (UKK).
