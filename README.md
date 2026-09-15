@@ -14,7 +14,8 @@ Sistem Parkir Coffe Sedayu dirancang dengan alur kerja sebagai berikut:
    * Pengguna memilih metode pembayaran (**Tunai, Transfer Bank, atau QRIS**)[cite: 3].
    * Sistem memperbarui status transaksi menjadi `keluar` dan struk siap dicetak[cite: 3].
 ---
-<a href="https://github.com/user-attachments/assets/8e895ab7-c388-4912-b2cf-8c453a62edbc" target="_blank" style="display: inline-block; background-color: #159957; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">🖼️ Lihat Mockup Aplikasi Parkir</a>
+![Mockup Aplikasi Parkir](./Screenshot%202026-09-15%20075644.jpg)
+
 ## 🚀 Fitur Utama
 
 ### 1. **Role & Hak Akses (Multi-user)**
