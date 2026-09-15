@@ -95,7 +95,6 @@ Dilengkapi:
 ![ERD Database Coffe Sedayu Parking](docs/erd_coffe_sedayu_parking.png)
 
 ---
-Lihat diagram lengkap: [`docs/02-perancangan.pdf`](docs/02-perancangan.pdf)
 
 ---
 
@@ -161,17 +160,6 @@ project-ukk/
 ```
    ![Diagram Struktur Folder](docs/struktur_folder_proyek.png)
 ---
-
-## 📖 Dokumentasi Lengkap
-
-| Dokumen | Isi |
-|---|---|
-| [`01-analisis-kebutuhan.pdf`](docs/01-analisis-kebutuhan.pdf) | Latar belakang, requirement, aktor/user |
-| [`02-perancangan.pdf`](docs/02-perancangan.pdf) | Use Case, Flowchart, ERD, Wireframe |
-| [`03-dokumentasi-program.pdf`](docs/03-dokumentasi-program.pdf) | Struktur aplikasi, teknologi, dokumentasi fungsi |
-| [`04-pengujian.pdf`](docs/04-pengujian.pdf) | Test case, expected/actual result, status pengujian |
-| [`05-debugging.pdf`](docs/05-debugging.pdf) | Error yang ditemukan, penyebab, solusi |
-| [`06-evaluasi.pdf`](docs/06-evaluasi.pdf) | Fitur berjalan, bug tersisa, rencana pengembangan |
 
 ---
 
