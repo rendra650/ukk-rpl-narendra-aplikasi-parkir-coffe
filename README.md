@@ -40,6 +40,7 @@ Diagram berikut menunjukkan aktor (Pelanggan, Petugas, Admin, Owner) dan fitur u
 ## ✨ Fitur Utama
 
 **Publik (Landing Page)**
+: <img src="docs/landing-page.jpg" alt="Landing Page Coffe Sedayu" width="800"> 
 - Status ketersediaan slot parkir secara live
 - Video profil suasana kafe & area parkir
 - Ulasan & rating dari pelanggan
