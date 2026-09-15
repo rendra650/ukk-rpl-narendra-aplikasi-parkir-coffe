@@ -43,9 +43,9 @@ Sistem Parkir Coffe Sedayu dirancang dengan alur kerja sebagai berikut:
 ## 🛠️ Teknologi yang Digunakan
 
 * **Backend:** PHP 8+ (Native dengan ekstensi PDO)
-* **Database:** MySQL / MariaDB
+* **Database:** MySQL
 * **Frontend:** Tailwind CSS (via CDN), FontAwesome 6.4.0
-* **Server Lokal:** XAMPP / Laragon (Apache)
+* **Server Lokal:** XAMPP (Apache)
 
 ---
 
@@ -77,7 +77,7 @@ Sesuaikan kredensial database (host, username, password, nama database) di dalam
 
 Menjalankan Aplikasi:
 
-Nyalakan Apache dan MySQL melalui control panel XAMPP/Laragon.
+Nyalakan Apache dan MySQL melalui control panel XAMPP
 
 Buka browser dan akses URL: http://localhost/coffe-sedayu/
 
