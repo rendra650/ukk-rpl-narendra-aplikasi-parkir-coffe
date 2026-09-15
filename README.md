@@ -78,6 +78,7 @@ Database: `coffee_sedayu_parking` — 7 tabel utama:
 Dilengkapi:
 - **Trigger** `trg_masuk_update_area` & `trg_keluar_update_area` — update slot terisi otomatis
 - **Stored Procedure** `sp_proses_keluar` — hitung tarif dengan `START TRANSACTION` / `COMMIT` / `ROLLBACK`
+> Akun baru juga bisa dibuat langsung lewat halaman **Buat Akun** di aplikasi (otomatis menjadi role Pelanggan).
 
 Lihat diagram lengkap: [`docs/02-perancangan.pdf`](docs/02-perancangan.pdf)
 
@@ -109,17 +110,7 @@ Lihat diagram lengkap: [`docs/02-perancangan.pdf`](docs/02-perancangan.pdf)
 
 ---
 
-## 🔐 Hak Akses & Kredensial
 
-Akun pengujian untuk asesor (silakan sesuaikan dengan akun yang benar-benar dibuat di database):
-
-| Role | Username | Password | Akses |
-|---|---|---|---|
-| Owner | `abdhil` | `owner123` | Dashboard finansial, laporan, daftar staff |
-| Admin | `rendra admin` | `admin123` | CRUD data master, rekap transaksi, log aktivitas |
-| Petugas | `rendra petugas` | `12345` | Kendaraan masuk/keluar, dashboard shift |
-| Pelanggan | `rendra pelanggan` | `pelanggan123` | Status parkir, bayar mandiri, riwayat pribadi |
-> Akun baru juga bisa dibuat langsung lewat halaman **Buat Akun** di aplikasi (otomatis menjadi role Pelanggan).
 
 ---
 
@@ -171,8 +162,8 @@ project-ukk/
 
 | | |
 |---|---|
-| **Nama Peserta** | [ISI NAMA LENGKAP KAMU] |
-| **Kelas** | [ISI KELAS KAMU] |
+| **Nama Peserta** | [Narendra] |
+| **Kelas** | [XII RPL1] |
 | **Judul Project** | Coffe Sedayu Parking System |
 | **Studi Kasus** | Aplikasi Parkir (P2) |
 | **Demo Online** | [ISI LINK DEMO, CONTOH: https://parkircoffesedayu.free.nf] |
