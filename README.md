@@ -13,8 +13,7 @@ Dokumentasi lengkap, panduan instalasi, dan struktur sistem untuk **Coffe Sedayu
 5. [Panduan Instalasi & Penggunaan](#-panduan-instalasi--penggunaan)
 6. [Hak Akses & Kredensial](#-hak-akses--kredensial)
 7. [Struktur Folder](#-struktur-folder)
-8. [Dokumentasi Lengkap](#-dokumentasi-lengkap)
-9. [Informasi Peserta](#-informasi-peserta)
+8. [Informasi Peserta](#-informasi-peserta)
 
 ---
 
@@ -165,7 +164,7 @@ project-ukk/
 | **Kelas** | [XII RPL1] |
 | **Judul Project** | Coffe Sedayu Parking System |
 | **Studi Kasus** | Aplikasi Parkir (P2) |
-| **Demo Online** | [ISI LINK DEMO, CONTOH: https://parkircoffesedayu.free.nf] |
+| **Demo Online** | [ https://parkircoffesedayu.free.nf] |
 
 **Known Issues:**
 - Stored procedure & trigger mungkin tidak berjalan di beberapa hosting gratis dengan privilege MySQL terbatas
