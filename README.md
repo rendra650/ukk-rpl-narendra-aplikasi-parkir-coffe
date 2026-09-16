@@ -11,9 +11,8 @@ Dokumentasi lengkap, panduan instalasi, dan struktur sistem untuk **Coffe Sedayu
 3. [Struktur Database](#-struktur-database)
 4. [Persyaratan Sistem](#-persyaratan-sistem)
 5. [Panduan Instalasi & Penggunaan](#-panduan-instalasi--penggunaan)
-6. [Hak Akses & Kredensial](#-hak-akses--kredensial)
-7. [Struktur Folder](#-struktur-folder)
-8. [Informasi Peserta](#-informasi-peserta)
+6. [Struktur Folder](#-struktur-folder)
+7. [Informasi Peserta](#-informasi-peserta)
 
 ---
 
